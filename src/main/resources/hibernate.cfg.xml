@@ -10,9 +10,9 @@
 
 		<!-- Configurações de Conexão com o Banco de Dados -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://192.168.0.104:3306/drogaria_old</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/drogaria</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">RVYcmy10786</property>
+		<property name="connection.password">1707</property>
 
 		<!-- Pool de Conexões -->
 		<property name="connection.pool_size">1</property>
@@ -30,7 +30,19 @@
 		<property name="show_sql">true</property>
 
 		<!-- Cria as tabelas do banco de dados -->
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">validate</property>
+		
+		<mapping class="br.com.rodolfo.drogaria.domain.Estado" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Fabricante" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Cidade" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Produto" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Pessoa" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Cliente" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Usuario" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Funcionario" />
+		<mapping class="br.com.rodolfo.drogaria.domain.Venda" />
+		<mapping class="br.com.rodolfo.drogaria.domain.ItemVenda" />
+		
 		
 	</session-factory>
 
