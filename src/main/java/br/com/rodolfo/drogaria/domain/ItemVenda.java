@@ -23,6 +23,36 @@ public class ItemVenda extends GenericDomain{
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Venda venda;
-	
 
+	public short getQuantidade(Short aShort) {
+		return quantidade;
+	}
+
+	public void setQuantidade(short quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	public BigDecimal getValorParcial(BigDecimal bigDecimal) {
+		return valorParcial;
+	}
+
+	public void setValorParcial(BigDecimal valorParcial) {
+		this.valorParcial = valorParcial;
+	}
 }
