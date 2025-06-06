@@ -21,7 +21,5 @@ public class UsuarioDaoTest {
         UsuarioDao usuarioDao = new UsuarioDao();
         usuarioDao.salvar(usuario);
 
-
-
     }
 }

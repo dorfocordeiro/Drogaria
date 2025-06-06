@@ -16,7 +16,7 @@ public class ClienteDaoTest {
     //@Ignore
     public void salvar() throws ParseException {
         PessoaDao pessoaDao = new PessoaDao();
-        Pessoa pessoa = pessoaDao.buscar(1L); // Pessoa precisa já existir no banco
+        Pessoa pessoa = pessoaDao.buscar(9L);
 
         if (pessoa == null) {
             System.out.println("Pessoa com código 1 não encontrada.");
