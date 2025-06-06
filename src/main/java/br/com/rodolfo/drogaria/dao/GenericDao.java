@@ -46,7 +46,10 @@ public class GenericDao<DominiosType> {
 		catch (RuntimeException erro){
 			
 		}
-	
+
+		finally {
+			sessao.close();
+		}
 		return null;
 	
 	
