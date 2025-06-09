@@ -44,6 +44,7 @@ public class GenericDao<DominiosType> {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 
 		try {
+			
 			Criteria consulta = sessao.createCriteria(classe);
 			List<DominiosType> resultado = consulta.list();
 			return resultado;
