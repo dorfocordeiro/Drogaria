@@ -10,32 +10,23 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:panel header="Estados - Listagem">
+		<p:panel header="Fabricantes - Listagem">
 			<p:dataTable emptyMessage="Nenhum Registro Encontrado"
 				paginator="true">
 				<f:facet name="header">
-					<p:commandButton value="Botão Teste"
+					<p:commandButton value="Novo"
 						oncomplete="PF('dialogo').show();" />
 				</f:facet>
 
-
 				<p:column headerText="Nome">
-
-				</p:column>
-
-				<p:column headerText="Sigla ">
-
-				</p:column>
-
-				<p:column headerText="Opções">
 
 				</p:column>
 
 			</p:dataTable>
 		</p:panel>
 	</h:form>
-
-	<p:dialog header="Estados - Cadastro" widgetVar="dialogo"
+	
+	<p:dialog header="Fabricante - Cadastro" widgetVar="dialogo"
 		draggable="false" resizable="false" modal="true">
 		<h:form>
 
@@ -43,8 +34,6 @@
 				<p:outputLabel value="Nome: " />
 				<p:inputText maxlength="50" size="30" />
 
-				<p:outputLabel value="Sigla: " />
-				<p:inputText maxlength="2" size="10" />
 			</h:panelGrid>
 			<h:panelGrid columns="2" >
 				<p:commandButton value="Salvar" />
@@ -56,4 +45,3 @@
 	</p:dialog>
 </h:body>
 </html>
-

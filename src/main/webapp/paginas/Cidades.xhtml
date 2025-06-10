@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:panel header="Estados - Listagem">
+		<p:panel header="Cidades - Listagem">
 			<p:dataTable emptyMessage="Nenhum Registro Encontrado"
 				paginator="true">
 				<f:facet name="header">
@@ -23,7 +23,7 @@
 
 				</p:column>
 
-				<p:column headerText="Sigla ">
+				<p:column headerText="Estado">
 
 				</p:column>
 
@@ -35,7 +35,7 @@
 		</p:panel>
 	</h:form>
 
-	<p:dialog header="Estados - Cadastro" widgetVar="dialogo"
+	<p:dialog header="Cidades - Cadastro" widgetVar="dialogo"
 		draggable="false" resizable="false" modal="true">
 		<h:form>
 
@@ -43,12 +43,16 @@
 				<p:outputLabel value="Nome: " />
 				<p:inputText maxlength="50" size="30" />
 
-				<p:outputLabel value="Sigla: " />
-				<p:inputText maxlength="2" size="10" />
+				<p:outputLabel value="Estado: " />
+				<p:selectOneMenu filter="true">
+					<f:selectItem itemValue="" itemLabel="Selecione">
+					
+					</f:selectItem>
+				</p:selectOneMenu>
 			</h:panelGrid>
-			<h:panelGrid columns="2" >
+			<h:panelGrid columns="2">
 				<p:commandButton value="Salvar" />
-				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
+				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
 			</h:panelGrid>
 		</h:form>
 
@@ -56,4 +60,3 @@
 	</p:dialog>
 </h:body>
 </html>
-

@@ -10,41 +10,40 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:panel header="Estados - Listagem">
+		<p:panel header="Produtos - Listagem">
 			<p:dataTable emptyMessage="Nenhum Registro Encontrado"
 				paginator="true">
 				<f:facet name="header">
-					<p:commandButton value="Botão Teste"
+					<p:commandButton value="Novo"
 						oncomplete="PF('dialogo').show();" />
 				</f:facet>
 
-
-				<p:column headerText="Nome">
-
-				</p:column>
-
-				<p:column headerText="Sigla ">
-
-				</p:column>
-
-				<p:column headerText="Opções">
-
-				</p:column>
-
+				<p:column headerText="Nome" />
+				<p:column headerText="CPF" />
+				<p:column headerText="N° da CLT" />
+				<p:column headerText="Data de Admissão" />
+				<p:column headerText="Opções" />
+			
 			</p:dataTable>
 		</p:panel>
 	</h:form>
-
-	<p:dialog header="Estados - Cadastro" widgetVar="dialogo"
+	
+	<p:dialog header="Produtos - Cadastro" widgetVar="dialogo"
 		draggable="false" resizable="false" modal="true">
 		<h:form>
 
 			<h:panelGrid columns="2">
-				<p:outputLabel value="Nome: " />
-				<p:inputText maxlength="50" size="30" />
+				<p:outputLabel value="Pessoa" />
+				<p:selectOneMenu filter="true">
+					<f:selectItem itemValue="" itemLabel="Selecione"/>
+				</p:selectOneMenu>
+				
+				<p:outputLabel value="N° da CLT" />
+				<p:inputText maxlength="50" size="20" />
+				
+				<p:outputLabel value="Data de Admissão" />
+				<p:calendar pattern="dd/MM/yyyy" />
 
-				<p:outputLabel value="Sigla: " />
-				<p:inputText maxlength="2" size="10" />
 			</h:panelGrid>
 			<h:panelGrid columns="2" >
 				<p:commandButton value="Salvar" />
@@ -56,4 +55,3 @@
 	</p:dialog>
 </h:body>
 </html>
-
