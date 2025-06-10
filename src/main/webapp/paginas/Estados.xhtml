@@ -9,6 +9,8 @@
 	<title>Projeto Drogaria</title>
 </h:head>
 <h:body>
+	<p:growl id="message" />
+
 	<h:form>
 		<p:panel header="Estados - Listagem">
 			<p:dataTable emptyMessage="Nenhum Registro Encontrado"
@@ -47,8 +49,8 @@
 				<p:inputText maxlength="2" size="10" />
 			</h:panelGrid>
 			<h:panelGrid columns="2" >
-				<h:commandButton value="Salvar" actionListener="#{estadoBean.salvar}" />
-				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
+				<p:commandButton value="Salvar" actionListener="#{estadoBean.salvar()}" />
+				<p:commandButton value="Fechar" oncomplete="hide" />
 			</h:panelGrid>
 		</h:form>
 

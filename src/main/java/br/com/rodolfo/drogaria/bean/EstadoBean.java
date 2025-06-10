@@ -1,12 +1,19 @@
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import java.io.Serializable;
-import javax.faces.event.ActionEvent;
+package br.com.rodolfo.drogaria.bean;
 
-@ManagedBean // nome será 'estadoBean'
-@ViewScoped
-public class EstadoBean implements Serializable {
-    public void salvar(ActionEvent event) {
-        System.out.println("Botão funcionando!");
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
+@ManagedBean(name = "estadoBean")
+public class EstadoBean {
+    public void salvar(){
+        String texto = "Salvo com sucesso";
+        System.out.println("passou do salvo com sucesso");
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, texto, texto);
+        System.out.println("passou do faces");
+
+        FacesContext contexto = FacesContext.getCurrentInstance();
+        System.out.println("passou do context");
+        contexto.addMessage(null, message);
     }
 }
