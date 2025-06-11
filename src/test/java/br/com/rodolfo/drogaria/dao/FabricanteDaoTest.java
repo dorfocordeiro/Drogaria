@@ -2,7 +2,6 @@ package br.com.rodolfo.drogaria.dao;
 
 import java.util.List;
 
-import br.com.rodolfo.drogaria.domain.GenericDomain;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -33,7 +32,8 @@ public class FabricanteDaoTest {
     }
 
     @Test
-    public GenericDomain buscar(){
+    @Ignore
+    public void buscar(){
         Long codigo = 3L;
 
         FabricanteDao fabricanteDAO = new FabricanteDao();
@@ -45,6 +45,22 @@ public class FabricanteDaoTest {
             System.out.println("Registro encontrado:");
             System.out.println(fabricante.getCodigo() + " - " + fabricante.getDescricao());
         }
-        return fabricante;
+    }
+
+    @Test
+//    @Ignore
+    public void merge() {
+//        Fabricante fabricante = new Fabricante();
+//        fabricante.setDescricao("Fabricante A");
+//        FabricanteDao fabricanteDAO
+//       = new FabricanteDao();
+//        fabricanteDAO
+//       .merge(fabricante);
+
+        FabricanteDao fabricanteDAO = new FabricanteDao();
+        Fabricante fabricante = fabricanteDAO.buscar(11L);
+        fabricante.setDescricao("Fabricante B");
+        fabricanteDAO.merge(fabricante);
+
     }
 }
