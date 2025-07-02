@@ -1,0 +1,10 @@
+br\com\rodolfo\drogaria\dao\FabricanteDaoTest.class
+br\com\rodolfo\drogaria\dao\EstadoDaoTest.class
+br\com\rodolfo\drogaria\util\HibernateUtilTest.class
+br\com\rodolfo\drogaria\dao\ClienteDaoTest.class
+br\com\rodolfo\drogaria\dao\UsuarioDaoTest.class
+br\com\rodolfo\drogaria\dao\VendaDaoTest.class
+br\com\rodolfo\drogaria\dao\PessoaDaoTest.class
+br\com\rodolfo\drogaria\dao\CidadeDaoTest.class
+br\com\rodolfo\drogaria\dao\ProdutoDaoTest.class
+br\com\rodolfo\drogaria\dao\ItemVendaDaoTest.class

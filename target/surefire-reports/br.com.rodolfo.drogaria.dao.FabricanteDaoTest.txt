@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.rodolfo.drogaria.dao.FabricanteDaoTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.011 s -- in br.com.rodolfo.drogaria.dao.FabricanteDaoTest
