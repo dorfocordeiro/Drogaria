@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import br.com.rodolfo.drogaria.util.HibernateUtil;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 public class GenericDao<DominiosType> {
@@ -131,6 +132,25 @@ public class GenericDao<DominiosType> {
 		} finally {
 			sessao.close();
 		}
+	}
+
+	public List<DominiosType> listar(String odernacao) {
+
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+
+		try {
+
+			Criteria consulta = sessao.createCriteria(classe);
+			consulta.addOrder(Order.asc("ordenacao"));
+			List<DominiosType> resultado = consulta.list();
+			return resultado;
+		} catch (RuntimeException erro) {
+
+		} finally {
+			sessao.close();
+		}
+		return null;
+
 	}
 }
 

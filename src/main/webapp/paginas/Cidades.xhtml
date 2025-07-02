@@ -14,11 +14,15 @@
 
 	<h:form id="formListagem">
 		<p:panel header="Cidades - Listagem">
-			<p:dataTable id="tabelaListagem" emptyMessage="Nenhum Registro Encontrado"
+			<p:dataTable id="tabela" emptyMessage="Nenhum Registro Encontrado"
 				paginator="true" value="#{cidadeBean.cidades}" var="cidade" rows="10">
 				<f:facet name="header">
 					<p:commandButton value="Nova Cidade" actionListener="#{cidadeBean.novo()}"
-						oncomplete="PF('dialogo').show();" update=":mensagem :formCadastro:pgCidade" />
+						oncomplete="PF('dialogo').show();" update=":mensagem :formCadastro:" >
+
+						<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
+
+					</p:commandButton>
 				</f:facet>
 
 				<p:column headerText="Nome" sortBy="#{cidade.nome}" filterBy="#{cidade.nome}">
@@ -33,9 +37,28 @@
 
 				<p:column headerText="Opções">
 
-				</p:column>
+					<p:commandButton icon="ui-icon-trash"
+									 actionListener="#{cidadeBean.excluir}"
+									 update=":mensagem :formListagem">
+						<p:confirm header="Excluir Cidade" message="Deseja excluir a cidade?" icon="ui-icon-alert" />
+						<f:attribute name="cidadeSelecionada" value="#{cidade}"/>
+						<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
+					</p:commandButton>
 
+					<p:commandButton icon="ui-icon-pencil" actionListener="#{cidadeBean.editar}"
+									 update=":mensagem :formCadastro"
+									 oncomplete="PF('dialogo').show();">
+						<f:attribute name="cidadeSelecionada" value="#{cidade}"/>
+
+					</p:commandButton>
+				</p:column>
 			</p:dataTable>
+
+			<p:confirmDialog global="true" >
+				<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+				<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+			</p:confirmDialog>
+
 		</p:panel>
 	</h:form>
 
@@ -45,10 +68,13 @@
 
 			<h:panelGrid id="tabelaCidade" columns="2">
 				<p:outputLabel value="Nome: " />
-				<p:inputText maxlength="50" size="30" value="#{cidadeBean.cidade.nome}"/>
+				<p:inputText maxlength="50" size="30" value="#{cidadeBean.cidade.nome}"
+					required="true" requiredMessage="Por favor insira um nome."/>
 
 				<p:outputLabel value="Estado: " />
-				<p:selectOneMenu filter="true" value="#{cidadeBean.cidade.estado}">
+				<p:selectOneMenu filter="true" value="#{cidadeBean.cidade.estado}"
+					converter="omnifaces.SelectItemsConverter"
+					required="true" requiredMessage="Por favor insira um estado.">
 					<f:selectItem noSelectionOption="true" itemLabel="Selecione" />
 					<f:selectItems value="#{cidadeBean.estados}" var="estado"
 					itemValue="#{estado}" itemLabel="#{estado.nome} - #{estado.sigla}"/>
@@ -60,7 +86,6 @@
 				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
 			</h:panelGrid>
 		</h:form>
-
 
 	</p:dialog>
 </h:body>

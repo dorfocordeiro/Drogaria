@@ -9,6 +9,7 @@ import org.omnifaces.util.Messages;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +51,14 @@ public class CidadeBean implements Serializable {
 
     @PostConstruct
     public void listar() {
-        try{
+        try {
+            cidade = new Cidade();
+
+            EstadoDao estadoDao = new EstadoDao();
+            estados = estadoDao.listar();
+
             CidadeDao cidadeDao = new CidadeDao();
             cidades = cidadeDao.listar();
-
-
 
         }
         catch(RuntimeException erro){
@@ -82,6 +86,38 @@ public class CidadeBean implements Serializable {
         }
     }
 
+    public void excluir(ActionEvent event){
+        try{
+            cidade = (Cidade)event.getComponent().getAttributes().get("cidadeSelecionada");
+
+            CidadeDao cidadeDao = new CidadeDao();
+            cidadeDao.excluir(cidade);
+
+            cidades = cidadeDao.listar();
+
+            Messages.addGlobalInfo("Cidade Excluida com sucesso!");
+        }
+        catch(RuntimeException erro){
+            Messages.addGlobalError("Erro ao tentar excluir a cidade.");
+            erro.printStackTrace();
+        }
+
+    }
+
+    public void editar(ActionEvent event) {
+        try {
+            cidade = (Cidade) event.getComponent().getAttributes().get("cidadeSelecionada");
+
+            EstadoDao estadoDao = new EstadoDao();
+            estados = estadoDao.listar();
+        }
+        catch(RuntimeException erro){
+            Messages.addGlobalError("Ocorreu um erro ao tentar listar os estados.");
+
+        }
+
+    }
+
 
     public void novo(){
         try {
@@ -91,9 +127,8 @@ public class CidadeBean implements Serializable {
         }
         catch(RuntimeException erro){
             Messages.addGlobalError("Ocorreu um erro ao tentar listar os estados.");
+
         }
     }
-
-    
 
 }

@@ -86,6 +86,8 @@ public class EstadoBean implements Serializable {
 
     public void editar(ActionEvent event) {
         estado = (Estado) event.getComponent().getAttributes().get("estadoSelecionado");
+        EstadoDao estadoDao = new EstadoDao();
+        estadoDao.merge(estado);
 
     }
 
